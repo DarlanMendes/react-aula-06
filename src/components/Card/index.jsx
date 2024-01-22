@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react"
-//import { CartContext } from "../../context/CartContext"
+import { useEffect, useState } from "react"
+
 export default function Card({product, setCart}){
     const[qtdItens, setQtdItens] = useState(0)
     function handleItem(action){
@@ -12,7 +12,11 @@ export default function Card({product, setCart}){
         }
        
     }
-    //const{setCart} = useContext(CartContext)
+   
+   
+
+
+
     useEffect(()=>{
         setCart((prevCart)=>{
            const differentItems =  prevCart.filter((item)=>item.id!== product.id)

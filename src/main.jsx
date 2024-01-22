@@ -4,11 +4,9 @@ import App from './App.jsx'
 import './index.css'
 import { CartProvider } from './context/CartContext.jsx'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+ReactDOM.createRoot(document.getElementById('root')).render( 
     <CartProvider>
       <App />
     </CartProvider>
 
-  </React.StrictMode>,
 )
