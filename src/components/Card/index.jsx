@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
+import { CartContext } from "../../context/CartContext"
 
-export default function Card({product, setCart}){
-    const[qtdItens, setQtdItens] = useState(0)
+export default function Card({product }){
+    const[qtdItens, setQtdItens] = useState(parseInt(localStorage.getItem(`${product.id}`)) || 0)
+    
     function handleItem(action){
         if(action==="+"){
             setQtdItens(oldValue => oldValue + 1)
@@ -12,12 +14,17 @@ export default function Card({product, setCart}){
         }
        
     }
-   
+  const {setCart}= useContext(CartContext)
+
    
 
 
 
     useEffect(()=>{
+
+        localStorage.setItem(`${product.id}`, qtdItens)
+        console.log(localStorage.getItem(`${product.id}`));
+
         setCart((prevCart)=>{
            const differentItems =  prevCart.filter((item)=>item.id!== product.id)
            return [...differentItems , {...product, qtd: qtdItens}]

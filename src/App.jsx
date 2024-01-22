@@ -1,13 +1,14 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import Header from "./components/Header"
 import Main from "./components/Main"
+import { ThemeContext } from "./context/ThemeContext"
 function App() {
-  const [cart, setCart] = useState([])
- console.log(cart)
+  const {theme} = useContext(ThemeContext)
+ 
   return (
-    <div className="flex flex-col items-center justify-center">
-    <Header cart={cart}/>
-    <Main setCart={setCart}/>
+    <div className={`flex flex-col items-center justify-center ${theme === "light"? "bg-slate-50" : "bg-slate-800 text-white"}`}>
+    <Header />
+    <Main  />
     </div>
   )
 }

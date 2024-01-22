@@ -1,9 +1,9 @@
 import Promo from "../Promo";
 
-export default function Main({setCart}){
+export default function Main(){
     return(
         <main>
-           <Promo setCart={setCart}/>
+           <Promo  />
         </main>
     )
 }

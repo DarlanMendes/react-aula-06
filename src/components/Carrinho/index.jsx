@@ -1,8 +1,11 @@
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../../context/CartContext";
 
-export default function Carrinho({cart}){
+
+export default function Carrinho(){
     const[totalItens, setTotalItens] = useState(0)
+    const {cart} = useContext(CartContext)
     
     useEffect(()=>{
         let total = cart.length>0&&cart.reduce((acc, currentItem)=>acc.qtd+currentItem.qtd)
